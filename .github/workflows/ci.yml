@@ -1,0 +1,23 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Build and test
+        run: |
+          javac -d out/tools tools/Build.java
+          java -cp out/tools Build
+      - name: Demo
+        run: |
+          java -cp out/classes dev.acciv.apicanon.Cli canon examples/request-a.json
+          java -cp out/classes dev.acciv.apicanon.Cli diff examples/request-a.json examples/request-b.json

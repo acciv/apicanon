@@ -1,0 +1,17 @@
+{
+  "method": "post",
+  "path": "/v1/users/43?a=1&b=2&c=hello+world",
+  "headers": {
+    "X-Request-Id": "req-FAKE-2",
+    "Content-Type": "application/json; charset=utf-8",
+    "Authorization": "Bearer ghp_FAKE_CI_0001"
+  },
+  "body": {
+    "a": {
+      "x": [3, 2],
+      "y": 2
+    },
+    "z": 1,
+    "extra": true
+  }
+}
